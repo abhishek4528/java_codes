@@ -1,0 +1,103 @@
+import java.util.*;
+ class Newclass1
+{   
+    
+    int addition(int a1,int b1)
+    {
+      return (a1+b1);
+    }
+    int subtraction(int a1,int b1)
+    {
+      return (a1-b1);
+    }
+    int multiplication(int a1,int b1)
+    {
+      return (a1*b1);
+    }
+    int divide(int a1,int b1)
+    {
+      return (a1%b1);
+    }
+    int modulus(int a1,int b1)
+    {
+      return (a1/b1);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+	    System.out.println("Select-> '+' for additon");
+	    System.out.println("Select-> '-' for subtraction");
+	    System.out.println("Select-> '*' for multiplication");
+	    System.out.println("Select-> '/' for divide");
+	    System.out.println("Select-> '%' for modulus");
+	Scanner sc =new Scanner(System.in);
+	String symbol=sc.next();
+	char sym = symbol.charAt(0);
+	switch(sym)
+	{
+	    case '+':
+	        System.out.print("add(+)");
+	        Newclass1 nc = new Newclass1();
+	        Scanner sc1 =new Scanner(System.in);
+	         System.out.println("Enter two number");
+	        int a=sc1.nextInt();
+	        int b=sc1.nextInt();
+	        nc.addition(a,b);
+	        System.out.println( nc.addition(a,b));
+	             break;
+	    case '-':
+	        System.out.println("sub(-)");
+	        Newclass1 nc1 = new Newclass1();
+	         Scanner sc2 =new Scanner(System.in);
+	          System.out.println("Enter two number");
+	        int a2=sc2.nextInt();
+	        int b2=sc2.nextInt();
+	        nc1.subtraction(a2,b2);
+	        System.out.println( nc1.subtraction(a2,b2));
+	             break;
+	    case '*':
+	        System.out.println("mul(*)");
+	        Scanner sc3 =new Scanner(System.in);
+	         System.out.println("Enter two number");
+	        Newclass1 nc2 = new Newclass1();
+	        int a3=sc3.nextInt();
+	        int b3=sc3.nextInt();
+	        nc2.multiplication(a3,b3);
+	        System.out.println(nc2.multiplication(a3,b3));
+	             break;
+	    case '%':
+	        System.out.println("divide(/)");
+	        Scanner sc4 =new Scanner(System.in);
+	        Newclass1 nc4 = new Newclass1();
+	         System.out.println("Enter two number");
+	        int a4=sc4.nextInt();
+	        int b4=sc4.nextInt();
+	       
+	           nc4.modulus(a4,b4);
+	        System.out.println( nc4.modulus(a4,b4));
+	          
+	       
+	              break;
+	    case '/':
+	        System.out.println("mod(%)");
+	        Scanner sc5 =new Scanner(System.in);
+	         System.out.println("Enter two number");
+	        Newclass1 nc5 = new Newclass1();
+	        int a5=sc5.nextInt();
+	        int b5=sc5.nextInt();
+	        nc5.modulus(a5,b5);
+	        System.out.println( nc5.modulus(a5,b5));
+	             break;
+	    default:
+	        System.out.println("invalid selection");
+	        
+	}
+	  
+       
+    	   main(null);
+       
+	}
+
+}
