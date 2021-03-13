@@ -1,0 +1,53 @@
+import java.util.*;
+ class Search
+{   
+    int i,c=0;
+    int linear_search(int [] Ele_arr,int search)
+    {//below is the simple logic to search the element
+        for( i=0;i<Ele_arr.length;i++)
+         {
+             if(Ele_arr[i]==search)
+                 {  
+                   c=1;
+                   break;
+                 }
+         }
+        
+         if(c==1) return i;
+           return -1;
+         
+    }
+ 
+}
+
+public class Main
+{
+	public static void main(String[] args){
+	  System.out.println("Enter the size of array");
+            //imput the size of array from line 36-38
+            
+	   Scanner sc =new Scanner(System.in);
+	     int size=sc.nextInt();
+	     int[]Ele_arr=new int[size];
+           //input array element from user from line 40-44
+           
+	  System.out.println("Enter the elements");
+	    for(int i=0;i<size;i++)
+	       {
+	         Ele_arr[i]=sc.nextInt();
+	       }
+           //input the elemnt to be searched.from line 46-48.
+           
+	  System.out.println("Enter the element to be searched");
+	 	  int find =sc.nextInt();
+	      Search nc = new Search();
+          //calling "search" class "linear_search" function.line-50
+          
+	      nc.linear_search(Ele_arr,find);
+         //printing the status     
+	   System.out.print(find+" Element founded at index -> ["+ nc.linear_search(Ele_arr,find)+"]");
+	   System.out.println();
+	 main(null);
+	}
+
+}
