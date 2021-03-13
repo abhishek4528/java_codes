@@ -1,0 +1,25 @@
+public class Main
+{
+   
+	public static void main(String[] args) {
+	    
+	   for (int i=0;i<10;i++)
+	    
+	    { 
+	        for(int j=0;j<=i;j++)
+	      {
+	      if(i+1==j) continue; //as soon as the value of outer loop = inner loop iteration we will continue it;
+	      
+	        System.out.print(i*j+" ");                                         /* <- This logic will print pattern  0
+	                                                                                                                0 1     
+	                                                                                                                0 2 4
+	                                                                                                                0 3 6 9
+	                                                                                                                0 4 8 12 16 and soon up to i<10*/   
+	         
+	         
+	       }
+	      System.out.println(" ");//next line
+	    }
+	}
+}
+
