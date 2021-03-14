@@ -1,6 +1,8 @@
+package java_training;
+
 import java.util.*;
 
-public class Main {
+public class Prime_detector {
 
 	public static void main(String[] args) {
 		int c=0;
@@ -23,18 +25,20 @@ public class Main {
 				
 			 }
 		  }
-		    if(num==1)
-		      
-		        	  System.out.println(num+"is not prime number");   
+		    if(num==1||num==0)
+		           {
+		        	  System.out.println(num+" is not a prime number");  
+				    System.out.println("Reason -> the number of positive divisors or factors is only one i.e." +num+"\n");   
+		           }
 		      
 		    else if(c==1)
 		    
-			          System.out.println(num+"is not prime number");
+			          System.out.println(num+" is not a prime number \n");
 		 
 		    else
-			          System.out.println(num+"is prime number");
+			          System.out.println(num+" is a prime number \n");
 			  
-			   System.out.println("Enter 'y' to continue operations");
+			   System.out.println("Enter 'y' to continue operations \n");
                decision = sc.next().charAt(0);
 			  
 		 }
