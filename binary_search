@@ -1,0 +1,76 @@
+package java_training;
+
+import java.util.*;
+ class Search
+{   
+	 void binary_search(int[] Element_array,int low,int high,int search_num) {
+		 int median;
+		 median =(low+high)/2;
+		 
+		while(low<=high)
+		 {//Checking if the element is present at middle loc
+			if( Element_array[median]==search_num)
+			{
+				 System.out.println( search_num +" is founded at index->["+(median+1) +"]"); break;
+			}//Checking if the search element is present in greater half
+			else if( Element_array[median]<search_num)
+			{
+				low =median+1;
+			}//Checking if the search element is present in lower half
+			else 
+			{
+				high=median-1;
+			}
+			
+			 median =(low+high)/2;
+		 }
+
+   if(low>high)
+	   System.out.println("Not found"); 
+	
+	
+	
+	
+	 }
+	
+}
+
+public class B_search{
+	public static void main(String[] args) {
+		
+		
+		Scanner sc = new Scanner(System.in);
+		Search call = new Search();	
+ char decision ='y';
+		 
+		 while(decision=='y'||decision=='Y')
+		 {
+		 System.out.println("Enter element array size"); 
+		  int size = sc.nextInt();
+		  int[] Element_array = new int[size];
+		  
+		  for(int i =0;i<Element_array.length;i++)
+		    {
+			  Element_array[i]=sc.nextInt();
+		    }
+		  
+		   		   System.out.println("Enter the number that you want to search: "); 
+		   int find=sc.nextInt();
+		   if(find>Element_array[size-1])
+		     {
+			   System.out.println("Not found");
+			  
+		     }
+		   else 
+		   {
+		    call.binary_search(Element_array,0,size,find);
+		   }
+		   System.out.println("Enter 'y' to continue operations");
+		    decision = sc.next().charAt(0);
+		    
+		 }
+		   
+}
+	
+	
+}
