@@ -1,0 +1,106 @@
+package java_training;
+
+import java.util.*;
+ class Calc_calculation
+{   
+    
+    int addition(int a1,int b1)
+    {
+      return (a1+b1);
+    }
+    int subtraction(int a1,int b1)
+    {
+      return (a1-b1);
+    }
+    int multiplication(int a1,int b1)
+    {
+      return (a1*b1);
+    }
+    float divide(Float a1,Float b1)
+    {
+      return  (a1/b1);
+    }
+    float modulus(Float a1,Float b1)
+    {
+      return (a1%b1);
+    }
+}
+
+public class Main
+{
+	public static void main(String[] args) {
+		int a=0,b=0;
+		float a0=0.0f ,b0 =0.0f;
+		 Calc_calculation call = new Calc_calculation();
+		 Scanner sc =new Scanner(System.in);
+		 char decision ='y';
+		 
+		 while(decision=='y'||decision=='Y')
+		 {
+	    System.out.println("Select-> '+' for additon");
+	    System.out.println("Select-> '-' for subtraction");
+	    System.out.println("Select-> '*' for multiplication");
+	    System.out.println("Select-> '/' for divide");
+	    System.out.println("Select-> '%' for modulus");
+	
+	String symbol=sc.next();
+	char sym = symbol.charAt(0);
+	switch(sym)
+	{
+	    case '+':
+	        System.out.print("add(+)");
+	       
+	       
+	         System.out.println("Enter two number");
+	         a=sc.nextInt();
+	         b=sc.nextInt();
+	         call.addition(a,b);
+	        System.out.println( call.addition(a,b));
+	             break;
+	    case '-':
+	        System.out.println("sub(-)");
+	        System.out.println("Enter two number");
+	           a=sc.nextInt();
+	           b=sc.nextInt();
+	           call.subtraction(a,b);
+	        System.out.println( call.subtraction(a,b));
+	             break;
+	    case '*':
+	        System.out.println("mul(*)");
+	        System.out.println("Enter two number");
+	          a=sc.nextInt();
+	          b=sc.nextInt();
+	          call.multiplication(a,b);
+	        System.out.println(call.multiplication(a,b));
+	             break;
+	    case '/':
+	        System.out.println("divide(/)");
+	        System.out.println("Enter two number");
+	         a0=sc.nextFloat();
+	         b0=sc.nextFloat();
+	         call.divide(a0,b0);
+	        System.out.println( call.divide(a0,b0));
+	          
+	       
+	              break;
+	    case '%':
+	        System.out.println("mod(%)");
+	        System.out.println("Enter two number");
+	         a0=sc.nextFloat();
+	         b0=sc.nextFloat();
+	         call.modulus(a0,b0);
+	        System.out.println(call.modulus(a0,b0));
+	             break;
+	    default:
+	        System.out.println("invalid selection");
+	        
+	    }
+    System.out.println("Enter 'y' to continue operations");
+    decision = sc.next().charAt(0);
+    
+	}  
+    	  
+       
+	}
+
+}
