@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class Main {
+
+	public static void main(String[] args) {
+		int c=0;
+		char decision ='y';
+		 
+		  while(decision=='y'||decision=='Y')
+		   {
+		       System.out.println("Enter number"); 
+		  Scanner sc = new Scanner(System.in);
+		    int num = sc.nextInt();
+		  //checking from i=2 to sqrt of entered 'num';
+		   
+		  for(int i = 2;i<=Math.sqrt(num);i++)
+		  {
+		     
+		   if(num%i==0) 
+			 {    
+				 c=1;
+				 break;
+				
+			 }
+		  }
+		    if(num==1)
+		      
+		        	  System.out.println(num+"is not prime number");   
+		      
+		    else if(c==1)
+		    
+			          System.out.println(num+"is not prime number");
+		 
+		    else
+			          System.out.println(num+"is prime number");
+			  
+			   System.out.println("Enter 'y' to continue operations");
+               decision = sc.next().charAt(0);
+			  
+		 }
+		  
+	}
+
+}
