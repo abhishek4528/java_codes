@@ -1,20 +1,41 @@
-package java_training;
+
 
 import java.util.*;
+class Check1{
+    	Scanner sc = new Scanner(System.in);
+  void check(String received_msg,int check_key,int key)
+	      {
+		  if(check_key==key)
+		      {
+		       	System.out.println("\nOriginal Message :-"+received_msg+"\n");
+		      }
+		   else
+		     {
+		      
+		      	System.out.print("Enter a valid key :- ");
+		      	  check_key=sc.nextInt();
+		         this.check( received_msg, check_key,key);
+		     }
+	      }
+}
+
 
 class Decrypt{
-	void decryption(String record)
-	{
-		System.out.println("\nHello Instructor: ");
+	void message_receiver(String record,String received_msg,int key)
+	{int entered_key=0;
+	System.out.println("\nHello Instructor: ");
 		System.out.println("\nYou got a message: "+record);
 		
-		
-		System.out.println("\nTo read this in original please type k value provided by Cell :-");
-		
-	}
+		   
+		System.out.print("\nTo read this in original please type k value provided by Cell :-");
+		  Scanner sc2 = new Scanner(System.in);
+		  entered_key=sc2.nextInt();
+		  Check1 call3 =new  Check1(); 
+		    call3.check(received_msg,entered_key, key);
+		}
 }
 class Encrypt{
-	void shift_encryption(String msg,int gap)
+	void message_sender(String msg,int gap)
 	{ String record="";
 		System.out.print("\nYou send - ");
 		 char ch;int encrypted_character=0;
@@ -88,18 +109,21 @@ class Encrypt{
 	         }
 		   System.out.println("\n\n");
 		   Decrypt call2 = new Decrypt();	
-		   call2.decryption(record);
+		   call2.message_receiver(record,msg,gap);
 	 }
 }
 
-public class Secure_communication {
+public class Main {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Encrypt call1 = new Encrypt();	
 		
 		int gap=0;
-	
+	 char decision ='y';
+		 
+		 while(decision=='y'||decision=='Y')
+		 {
 		
 		 System.out.println("\nHello MIT CELL:\n");
 		 System.out.print("\nPlease enter k value to shift transform message: ");
@@ -110,10 +134,10 @@ public class Secure_communication {
 		 System.out.print("\nNow please type your message: ");
           String msg = sc1.nextLine();
          
-          call1.shift_encryption(msg,gap);
-        
-       
+          call1. message_sender(msg,gap);
           
-	}
+           System.out.println("Do you want to send more messages(y/n):-");
+            decision = sc.next().charAt(0);
+		 }
+    }
 }
-
