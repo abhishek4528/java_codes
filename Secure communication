@@ -1,4 +1,4 @@
-
+package java_training;
 
 import java.util.*;
 class Check1{
@@ -11,14 +11,12 @@ class Check1{
 		      }
 		   else
 		     {
-		      
-		      	System.out.print("Enter a valid key :- ");
+		          System.out.print("Enter a valid key :- ");
 		      	  check_key=sc.nextInt();
 		         this.check( received_msg, check_key,key);
 		     }
 	      }
-}
-
+  }
 
 class Decrypt{
 	void message_receiver(String record,String received_msg,int key)
@@ -26,7 +24,6 @@ class Decrypt{
 	System.out.println("\nHello Instructor: ");
 		System.out.println("\nYou got a message: "+record);
 		
-		   
 		System.out.print("\nTo read this in original please type k value provided by Cell :-");
 		  Scanner sc2 = new Scanner(System.in);
 		  entered_key=sc2.nextInt();
@@ -44,76 +41,49 @@ class Encrypt{
 	          
 		      {
 	        	        ch=msg.charAt(i);
-	    //for A,B,C....Z                           
-	        	   if(ch>=65&&ch<=90)
-	        	        {  
-	        		     if((ch+gap)>90)
+	        	        //for A,B,C....Z &for a,b,c....z;                          
+	        	    if(ch>=65&&ch<=90||ch>=97&&ch<=122||ch>=48&&ch<=57)
+	        	    {
+	        		     if((ch+gap)>90&&(ch+gap)<97||(ch+gap)>122)
 	        		       {  
-	        			      encrypted_character= (ch+gap)-26;
-	        			    System.out.print((char)encrypted_character);
-	        			    record=record+(char)encrypted_character;
+	        		    	 encrypted_character= (ch+gap)-26;
+		        			    System.out.print((char)encrypted_character);
+		        			    record=record+(char)encrypted_character;
+	        		    	
 	        		       }
-	        		     else
-	        		       {
-	        			      encrypted_character=ch+gap;
-	        		      System.out.print((char)encrypted_character);
-	        		      record=record+(char)encrypted_character;
-	        		        }
-	        	         }
-	        		   
-	  //for a,b,c....z;     	                               
-	        	  else if(ch>=97&&ch<=122)
-	        	    {  
-	        		  if((ch+gap)>122)
-	        		     {  
-	        			      encrypted_character= (ch+gap)-26;
-	        			  System.out.print((char)encrypted_character);
-	        			  record=record+(char)encrypted_character;
-	        		     }
-	        		  else
-	        		     {
-	        		          encrypted_character=ch+gap;
-	        		      System.out.print((char)encrypted_character); 
-	        		      record=record+(char)encrypted_character;
-	        		     }
+	     //for 0,1.....9
+	                   else if((ch+gap)>57&&(ch+gap)<65)
+	 	    		         {  
+	 	        			      encrypted_character= (ch+gap)-9;
+	 	    			     System.out.print((char)encrypted_character);  
+	 	    			     record=record+(char)encrypted_character;
+	 	    		         }
+	                  
+	        	       else {   
+	        	    	   
+       		    	      encrypted_character=ch+gap;
+       		              System.out.print((char)encrypted_character);
+       		               record=record+(char)encrypted_character;
+       			      }
 	        	    }
-	        	  
-	  //for 1,2...9
-	        	  else if(ch>=48&&ch<=57)
-	        	     {  
-	        		    if((ch+gap)>57)
-	    		         {  
-	        			      encrypted_character= (ch+gap)-9;
-	    			     System.out.print((char)encrypted_character);  
-	    			     record=record+(char)encrypted_character;
-	    		         }
-	        	       else
-	        	         {
-	        	    	      encrypted_character=ch+gap;
-	        		     System.out.print((char)encrypted_character);
-	        		     record=record+(char)encrypted_character;
-	        	         }
-	        	     }
-	  //for special characters      	  
-	        	   else if(ch==' ')
-	        		     {System.out.print("@");    record=record+'@';}
-	        	  
-	        	   else if(ch=='.')
-	      		         {System.out.print("#");       record=record+'#';}
-	        	  
-	        	   else if(ch=='%') 
-	            	     {System.out.print("%");        record=record+'%';}
-	        	  
-	        	   else
-	        	         { System.out.print(ch);          record=record+ch;}
-	         }
+	        	    //FOR SPECIAL CHAR
+	             else if(ch==' ')
+       		     {System.out.print("@");    record=record+'@';  }
+       	         else if(ch=='.')
+     		         {System.out.print("#"); record=record+'#'; }
+       	         else if(ch=='%') 
+           	     {System.out.print("%");     record=record+'%'; }
+       	         else
+       	         { System.out.print(ch);     record=record+ch;  }
+	      	    }
+		   //CALL TO DECRYPT CLASS TO TRANSFORM MESSAGE IN TO ORIGINAL FORM
 		   System.out.println("\n\n");
 		   Decrypt call2 = new Decrypt();	
 		   call2.message_receiver(record,msg,gap);
 	 }
 }
 
-public class Main {
+public class Secure_communication {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -124,19 +94,15 @@ public class Main {
 		 
 		 while(decision=='y'||decision=='Y')
 		 {
-		
 		 System.out.println("\nHello MIT CELL:\n");
 		 System.out.print("\nPlease enter k value to shift transform message: ");
-		   gap = sc.nextInt();
-		   
-		  Scanner sc1 = new Scanner(System.in);
-		  
+		     gap = sc.nextInt();
+		     Scanner sc1 = new Scanner(System.in);
 		 System.out.print("\nNow please type your message: ");
-          String msg = sc1.nextLine();
-         
-          call1. message_sender(msg,gap);
-          
-           System.out.println("Do you want to send more messages(y/n):-");
+             String msg = sc1.nextLine();
+             
+             call1. message_sender(msg,gap);
+         System.out.println("Do you want to send more messages(y/n):-");
             decision = sc.next().charAt(0);
 		 }
     }
